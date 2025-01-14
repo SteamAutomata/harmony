@@ -1,0 +1,21 @@
+{
+  "name": "Harmony Framework Testing",
+  "emitLegacyScripts": false,
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
+      "Packages": {
+        "$path": "Packages/"
+      },
+      "Harmony": {
+        "$path": "src/Harmony"
+      }
+    },
+
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+      "$path": "test"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+[package]
+name = "steamautomata/harmony"
+description = "Simple and bloated Roblox Framework"
+version = "0.0.1"
+license = "MIT"
+authors = ["SteamAutomata on Github"]
+realm = "shared"
+registry = "https://github.com/upliftgames/wally-index"
+homepage = "https://steamautomata.github.io/harmony"
+repository = "https://github.com/SteamAutomata/Harmony"
+exclude = ["node_modules"]
+private = true # todo: make public
+
+[dependencies]
+Janitor = "howmanysmall/janitor@1.17.0"
+trove = "sleitnick/trove@1.5.0"
+bytenet-max = "elitriare/bytenet-max@0.1.9"
+
+[server-dependencies]
+ProfileStore = "lm-loleris/profilestore@1.0.2"

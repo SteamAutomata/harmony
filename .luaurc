@@ -1,0 +1,11 @@
+{
+  "languageMode": "strict",
+  "lint": {
+    "*": true,
+    "LocalUnused": false
+  },
+  "aliases": {
+    "harmony": "library/Harmony",
+    "packages": "Packages"
+  }
+}

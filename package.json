@@ -1,0 +1,16 @@
+{
+  "name": "harmony",
+  "version": "1.0.0",
+  "description": "A bloated but complete Roblox Framework",
+  "main": "none",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "docs": "moonwave build --code src",
+    "dev": "moonwave dev --code src",
+    "build": "rojo sourcemap test.project.json > sourcemap.json"
+  },
+  "author": "",
+  "license": "ISC"
+}
