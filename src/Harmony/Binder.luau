@@ -1,5 +1,4 @@
 local CollectionService = game:GetService("CollectionService")
-local Component = require(script.Parent.Component)
 local types = require(script.Parent.types)
 
 --[=[
@@ -10,7 +9,7 @@ local Binding = {
 }
 Binding.__index = Binding
 
-function Binding.new<C,I>(tag:string, ctor: (instance: I&Instance	) -> C&types.Component<I>): types.Binding<C>
+function Binding.new<C,I>(tag:string, ctor: (instance: I) -> C&types.Component<I>): types.Binding<C>
 	local self = {
 		_constructor = ctor,
 		_tag = tag,
@@ -53,7 +52,7 @@ end
 function Binding:Add(instance:Instance)
 	instance:AddTag(self._tag)
 	if not self._store[instance] then
-		self._store[instance] = self._constructor(instance)
+		self._store[instance] = self._constructor(instance::any)
 	end
 end
 

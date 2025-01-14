@@ -9,7 +9,8 @@
   "scripts": {
     "docs": "moonwave build --code src",
     "dev": "moonwave dev --code src",
-    "build": "rojo sourcemap test.project.json > sourcemap.json"
+    "build": "rojo sourcemap test.project.json > sourcemap.json",
+    "serve": "rojo serve test.project.json"
   },
   "author": "",
   "license": "ISC"

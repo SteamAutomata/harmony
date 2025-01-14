@@ -9,7 +9,7 @@ Just `require` it!
 
 Harmony isn't finished yet, checklist:
 
-- [v] Providers
+- [x] Providers
 - [ ] Components
 - [ ] More lifecycles
 - [ ] Global State Management

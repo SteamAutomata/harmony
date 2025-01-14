@@ -37,7 +37,7 @@ function Event.new(name:string, options: EventOptions?) : any
 
 	if options and options.sequential then
 		function self:Fire(...: any)
-			for _,listener in self._listeners do
+			for listener,_ in self._listeners do
 				listener.callback(...)
 			end
 		end
@@ -49,12 +49,12 @@ end
 --[=[
 	@within Event
 
-	Fires the worker
+	Fires the event
 
 	@return Event
 ]=]
 function Event:Fire(...: any)
-	for _,listener in self._listeners do
+	for listener,_ in self._listeners do
 		task.spawn(listener.callback, ...)
 	end
 end
@@ -62,16 +62,16 @@ end
 --[=[
 	@within Event
 
-	Connects a depdency to this worker.
+	Connects a depdency to this event.
 
 	@return Event
 ]=]
 function Event:Connect(dependency: any, callback: () -> ())
-	table.insert(self._listeners, {
+	self._listeners[{
 		name = getmetatable(dependency).name,
 		dependency = dependency,
 		callback = callback
-	})
+	}] = true
 end
 
 return Event;

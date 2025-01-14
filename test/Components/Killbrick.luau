@@ -1,8 +1,14 @@
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Workspace = game:GetService("Workspace")
 local Harmony = require(ReplicatedStorage.Harmony)
 
 local Methods = {}
+
+type InstanceType = BasePart
+type Self = Harmony.Component<InstanceType> & typeof(Methods) & {
+    damageAmount:number
+}
 
 function Methods.Touched(self:Self, hit: BasePart)
     local humanoid = hit.Parent and hit.Parent:FindFirstAncestorOfClass("Humanoid")
@@ -12,18 +18,21 @@ function Methods.Touched(self:Self, hit: BasePart)
 end
 
 function Methods.TakeDamage(self:Self, humanoid:Humanoid)
-    humanoid:TakeDamage(100)
+    humanoid:TakeDamage(self.damageAmount)
 end
 
-local factory = Harmony.Factory(...::BasePart)
+local factory = Harmony.Factory(...::InstanceType)
     :With(Methods, function()
         return {
-            counter = 0
+            damageAmount = 0
         }
     end)
     :Connect("Touched", Methods.Touched)
-    :New()
+    :Connect(Harmony.Events.Heartbeat, function(self, dt) --[[ do something every step here ]]  end)
+    :New(function(self) 
+        self.damageAmount = math.random(1, 100)
+    end)
     :Bind(script.Name)
 
-type Self = typeof(Methods)&{counter:number}&Harmony.Component<BasePart>
+
 return factory

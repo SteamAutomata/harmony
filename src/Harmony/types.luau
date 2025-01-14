@@ -13,7 +13,7 @@ export type Component<I> = {
 	janitor: typeof(Janitor.new()),
 	__enabled: boolean;
 	type: "Component";
-
+	name: string,
 	Destroy: (self: Component<I>) -> (),
 	IsEnabled: (self: Component<I>) -> boolean,
 	SetEnabled: (self: Component<I>, enabled:boolean) -> (),
@@ -34,12 +34,10 @@ export type Binding<C> = {
 	type: C
 }
 
-type FinalFactory<C> = {
-    Bind: (self: FinalFactory<C>, name:string) -> Binding<C>,
-}
 type Factory2<C> = {
-	Connect: <T...>(self: Factory2<C>, event: any, method: (self: C, T...) -> ()) -> Factory2<C>;
-    New: (self: Factory2<C>, callback: ((self: C) -> ())?) -> FinalFactory<C>;
+	Bind: (self: Factory2<C>, name:string) -> Binding<C>,
+	Connect: <T...>(self: Factory2<C>, event: string|RBXScriptSignal|Event<T...>, method: (self: C, T...) -> ()) -> Factory2<C>;
+    New: (self: Factory2<C>, callback: ((self: C) -> ())?) -> Factory2<C>;
 }
 type Factory1<C> = {
     With: <P,M>(self: Factory1<C>, methods: M&{}, callback: () -> P) -> Factory2<P&C&M>;
