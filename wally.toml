@@ -1,7 +1,7 @@
 [package]
 name = "steamautomata/harmony"
 description = "Simple and bloated Roblox Framework"
-version = "0.0.1-rc2"
+version = "0.0.1-rc4"
 license = "MIT"
 authors = ["SteamAutomata on Github"]
 realm = "shared"

@@ -8,6 +8,15 @@ export type Event<A...> = {
 	Connect: (self: Event<A...>, dependency: any, callback: (A...) -> ()) -> () -> ()
 }
 
+export type Provider = {
+	type: "Provider",
+	name: string,
+	Connect: <S, T...>(self: S, event: Event<T...>, callback: (T...) -> ()) -> S,
+	SetInterval: <S>(self: S, interval: number, spawn: boolean, callback: () -> ()) -> S,
+	-- __methodsMeta: {[string]: Internal.MethodMeta},
+	__dontTrack: boolean
+}
+
 export type Component<I> = {
 	me: I,
 	janitor: typeof(Janitor.new()),

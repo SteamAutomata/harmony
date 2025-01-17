@@ -9,7 +9,7 @@
         "$path": "Packages/"
       },
       "Harmony": {
-        "$path": "src/Harmony"
+        "$path": "src"
       }
     },
 

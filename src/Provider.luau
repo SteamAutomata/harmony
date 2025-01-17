@@ -1,8 +1,8 @@
 --!strict
 --!native
 --!optimize 2
-local Event = require(script.Parent.Event)
 local Events = require(script.Parent.Events)
+local types = require(script.Parent.types)
 
 --[=[
 	@class Provider
@@ -14,14 +14,6 @@ local Events = require(script.Parent.Events)
 local Provider = {};
 Provider.__index = Provider;
 
-export type BaseProvider = {
-	type: "Provider",
-	name: string,
-	Connect: <S, T...>(self: S, event: Event.Event<T...>, callback: (T...) -> ()) -> S,
-	-- __methodsMeta: {[string]: Internal.MethodMeta},
-	__dontTrack: boolean
-}
-
 --[=[
 	@within Provider
 
@@ -29,8 +21,8 @@ export type BaseProvider = {
 	
 	@return Provider
 ]=]
-function Provider.new<P,M>(name: string, methods: M, props: P): P&M&BaseProvider
-	local self = props :: P&M&BaseProvider
+function Provider.new<P,M>(name: string, methods: M, props: P): P&M&types.Provider
+	local self = props :: P&M&types.Provider
 
 	setmetatable(self::any, {
 		__index = setmetatable(methods::any, Provider),
@@ -55,7 +47,7 @@ end
 
 	@return Provider
 ]=]
-function Provider:Connect<T...>(event: Event.Event<T...>, callback: (T...) -> ())
+function Provider:Connect<T...>(event: types.Event<T...>, callback: (T...) -> ())
 	event:Connect(self, callback)
 	return self
 end
