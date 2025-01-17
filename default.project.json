@@ -1,6 +1,6 @@
 {
   "name": "Harmony Framework",
   "tree": {
-    "$path": "harmony"
+    "$path": "src"
   }
 }
