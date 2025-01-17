@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://steamautomata.github.io/harmony/blog</id>
+    <title>Harmony Blog</title>
+    <updated>2025-01-11T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://steamautomata.github.io/harmony/blog"/>
+    <subtitle>Harmony Blog</subtitle>
+    <icon>https://steamautomata.github.io/harmony/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[The Beginnings of Harmony Framework]]></title>
+        <id>https://steamautomata.github.io/harmony/blog/2025/01/11/how-it-started</id>
+        <link href="https://steamautomata.github.io/harmony/blog/2025/01/11/how-it-started"/>
+        <updated>2025-01-11T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Introduction]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="https://steamautomata.github.io/harmony/blog/2025/01/11/how-it-started#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="where-did-it-started-and-what-did-evolved-">Where did it started and what did evolved ?<a href="https://steamautomata.github.io/harmony/blog/2025/01/11/how-it-started#where-did-it-started-and-what-did-evolved-" class="hash-link" aria-label="Direct link to Where did it started and what did evolved ?" title="Direct link to Where did it started and what did evolved ?">​</a></h2>
+<p>Harmony Framework is a new Roblox framework I've been using internally for years. In its early stages, it was simply a set of libraries called Melody. However, as my projects grew, I realized my code had significant flaws, even with the libraries making things easier.</p>
+<p>Global RemoteEvents weren’t typed and were poorly optimized. Global state management was also untyped, relying on ValueBase objects. RemoteEvents were untyped, inter-script communication used BindableEvents with major issues, and managing replicated player data was done with Attributes, which are very bandwidth-expensive. And on top of the cake, my code was not consistent at all.</p>
+<p>Giving myself too much freedom on how to write code was the top of the cake.
+Inconsistencies everywheres, scripts parented in unusual places, questionnable naming conventions.
+I needed some sort of constraint to keep myself from rewriting the entire code every week.</p>
+<p>At that point, I moved away from Melody Framework and started using RobloxTS, but it had its own set of issues. I needed quick development, and RobloxTS or Rojo tools didn’t fit the project’s conditions, so using Flamework wasn’t ideal. Knit was unmaintained (I think?), and it wasn't type-safe. Prvd m' Wrong is still in early development and didn’t meet my needs.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-goals-of-this-new-framework">The goals of this new framework<a href="https://steamautomata.github.io/harmony/blog/2025/01/11/how-it-started#the-goals-of-this-new-framework" class="hash-link" aria-label="Direct link to The goals of this new framework" title="Direct link to The goals of this new framework">​</a></h2>
+<p>After finishing a Roblox project without any framework and seeing the resulting Experience not finding any audience, I've gained experience and thought for myself "How can I not redo those mistakes ?". I thought of what a front-page game need and wrote these specifications:</p>
+<ul>
+<li>Luau comfortable libraries that can be used in reactive context (Like Fusion or ReactLua)</li>
+<li>Admin commands</li>
+<li>Detect exploits, cheats, authorize player actions like teleporting</li>
+<li>Safe, Typed &amp; Fast Client-Server communication</li>
+<li>Manage global state</li>
+<li>Manage, save, react and replicate player state</li>
+<li>Use module architecture and have a better syntax that current Luau OOP syntax.</li>
+<li>Providers &amp; Components</li>
+<li>Utility modules</li>
+<li>Easy debugging and inspecting of behaviours while in-game</li>
+<li>Be able to write some Scripts and LocalScripts that depends on Providers &amp; Compoents, even if most of the code is SSA.</li>
+<li>Not forced to use Rojo</li>
+</ul>
+<h1>Designing the framework</h1>
+<p>At first, I wasn't familiar with Wally and toolchains manager like aftman, foreman and rokit. (Just learned yesterday that Rokit must be used)</p>]]></content>
+    </entry>
+</feed>

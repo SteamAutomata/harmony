@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[7983],{14997:e=>{e.exports=JSON.parse('{"functions":[],"properties":[],"types":[],"name":"Binding","desc":"","source":{"line":7,"path":"src/Harmony/Binder.luau"}}')}}]);
