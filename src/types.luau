@@ -8,10 +8,14 @@ export type Event<A...> = {
 	Connect: (self: Event<A...>, dependency: any, callback: (A...) -> ()) -> () -> ()
 }
 
+export type SignalLike = {
+	Connect: (self: SignalLike, callback: () -> ()) -> ()
+}
+
 export type Provider = {
 	type: "Provider",
 	name: string,
-	Connect: <S, T...>(self: S, event: Event<T...>, callback: (T...) -> ()) -> S,
+	Connect: <S, T...>(self: S, event: Event<T...>|RBXScriptSignal|SignalLike, callback: (T...) -> ()) -> S,
 	SetInterval: <S>(self: S, interval: number, spawn: boolean, callback: () -> ()) -> S,
 	-- __methodsMeta: {[string]: Internal.MethodMeta},
 	__dontTrack: boolean

@@ -11,6 +11,7 @@
 ]=]
 local Event = {};
 Event.__index = Event;
+Event.type = "HarmonyEvent"
 
 type Listener<A...> = {
 	name: string,

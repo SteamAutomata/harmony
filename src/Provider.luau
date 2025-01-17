@@ -47,8 +47,19 @@ end
 
 	@return Provider
 ]=]
-function Provider:Connect<T...>(event: types.Event<T...>, callback: (T...) -> ())
-	event:Connect(self, callback)
+function Provider:Connect<T...>(event: types.Event<T...>|RBXScriptSignal|types.SignalLike, callback: (T...) -> ())
+	if typeof(event)=="RBXScriptSignal" then
+		event:Connect(callback)
+	elseif typeof(event)=="table" then
+		assert(event.Connect, "Object provided is not like a Signal")
+		if event.type == "HarmonyEvent" then
+			event:Connect(self, callback)
+		else
+			event:Connect(callback)
+		end
+	else
+		error("Can't connect a "..typeof(event).." to a component")
+	end
 	return self
 end
 
