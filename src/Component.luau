@@ -1,5 +1,5 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local Janitor = require(ReplicatedStorage.Packages.Janitor)
+local Janitor = require(script.Parent.Parent.Janitor)
 local types = require(script.Parent.types)
 
 type Component<I> = types.Component<I>

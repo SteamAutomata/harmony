@@ -1,5 +1,5 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local Janitor = require(ReplicatedStorage.Packages.Janitor)
+local Janitor = require(script.Parent.Parent.Janitor)
 
 export type Event<A...> = {
 	_listeners: {any},
