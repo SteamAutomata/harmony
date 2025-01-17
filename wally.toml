@@ -9,7 +9,7 @@ registry = "https://github.com/upliftgames/wally-index"
 homepage = "https://steamautomata.github.io/harmony"
 repository = "https://github.com/SteamAutomata/Harmony"
 exclude = ["node_modules"]
-private = true # todo: make public
+private = false
 
 [dependencies]
 Janitor = "howmanysmall/janitor@1.17.0"
